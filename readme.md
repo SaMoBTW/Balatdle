@@ -1,6 +1,6 @@
-# Balatrodle
+# Balatdle
 
-Balatrodle is a web-based daily puzzle game where players guess a hidden “joker” from the deck-building video game Balatro. It follows the format of Wordle and similar games like LoLdle and Valdle.
+Balatdle is a web-based daily puzzle game where players guess a hidden “joker” from the deck-building video game Balatro. It follows the format of Wordle and similar games like LoLdle and Valdle.
 
 Each day, there is one mystery joker for everyone to solve, and the puzzle resets at a set time.
 
@@ -36,7 +36,7 @@ A second group to design for is the returning player, whose streak and statistic
 
 ## Technology and justification
 
-Balatrodle is a full-stack web project with three main components: a user interface, a backend service, and a database.
+Balatdle is a full-stack web project with three main components: a user interface, a backend service, and a database.
 
 ### Frontend
 
@@ -52,7 +52,7 @@ The backend will be a REST API written in Python with Flask. Python is easy to u
 
 ### Database
 
-The database will be SQLite, accessed from Python through the built-in sqlite3 module. A relational database fits because the data is structured and connected.
+The database will be PostgreSQL, accessed from Python through the psycopg driver. A relational database fits because the data is structured and connected.
 
 There will be four tables:
 
@@ -61,4 +61,4 @@ There will be four tables:
 - users: stores anonymous player records
 - guesses: records each attempt
 
-SQLite works well here because it is serverless and file-based. The entire database is stored in a single file with no separate server to install or run.
+PostgreSQL works well here because it enforces the relationships between those tables for me. Foreign keys, unique constraints, and value checks are written once in the schema instead of being repeated in application code. It also has real date and boolean types, which the puzzle date and the scaling flag both need.
