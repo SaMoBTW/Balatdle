@@ -120,7 +120,7 @@ The non-functional requirements are not written as stories. Answer secrecy, mobi
 
 ### US-1: Load the joker roster (MVP)
 
-As the developer, I want a seed script that loads the joker roster from a file into the database, so that the game has data to compare guesses against.
+As the developer, I want the joker roster loaded from a file, so that the game has something to compare guesses against.
 
 - Running the script against an empty database fills the `jokers` table from `jokers.json`
 - Running it a second time does not create duplicate rows
@@ -130,7 +130,7 @@ As the developer, I want a seed script that loads the joker roster from a file i
 
 ### US-2: Start today's puzzle (MVP)
 
-As a player, I want to open the page and get today's puzzle, so that I can start playing right away.
+As a player, I want today's puzzle when I open the page, so that I can start playing right away.
 
 - The page loads with an empty guess field and no guesses
 - Two players opening the page on the same date are working on the same joker
@@ -142,7 +142,7 @@ As a player, I want to open the page and get today's puzzle, so that I can start
 
 ### US-3: Submit a guess by name (MVP)
 
-As a player, I want to type a joker name and submit it, so that I can make an attempt.
+As a player, I want to guess by typing a joker name, so that I can take a shot at the answer.
 
 - Typing part of a name lists matching jokers
 - Selecting a suggestion and submitting records the guess
@@ -153,7 +153,7 @@ As a player, I want to type a joker name and submit it, so that I can make an at
 
 ### US-4: Read the feedback on my guesses (MVP)
 
-As a player, I want color-coded feedback on all six attributes for every guess I have made, so that I can narrow down the answer by comparing them.
+As a player, I want color-coded feedback on all six attributes, so that I can narrow down the answer.
 
 - Each guess returns a result for rarity, cost, effect type, activation, scaling, and unlock method
 - Each attribute shows as an exact match, a partial match, or no match
@@ -166,7 +166,7 @@ As a player, I want color-coded feedback on all six attributes for every guess I
 
 ### US-5: Win the round (MVP)
 
-As a player, I want a clear win state when I guess correctly, so that I know the round is over.
+As a player, I want a clear win state when I guess right, so that I know the round is over.
 
 - Guessing the answer ends the round and names the joker
 - The number of guesses used is displayed
@@ -176,7 +176,7 @@ As a player, I want a clear win state when I guess correctly, so that I know the
 
 ### US-6: Pick up where I left off (MVP)
 
-As a returning player, I want the game to remember me and my round without an account, so that a closed tab does not cost me my progress.
+As a returning player, I want my round restored when I come back, so that closing the tab does not cost me progress.
 
 - A first visit creates a token in the browser and a matching record on the server
 - Reloading mid-round restores every guess and its feedback
@@ -187,7 +187,7 @@ As a returning player, I want the game to remember me and my round without an ac
 
 ### US-7: See my streak and statistics
 
-As a player, I want to see how I have done over time, so that I have a reason to come back tomorrow.
+As a player, I want my streak and win record, so that I have a reason to come back tomorrow.
 
 - Solving on consecutive days increases the current streak, and missing a day resets it
 - The longest streak is kept even after the current one resets
@@ -198,7 +198,7 @@ As a player, I want to see how I have done over time, so that I have a reason to
 
 ### US-8: Share my result without spoiling it
 
-As a player, I want to copy a small grid of my result, so that I can compare with friends without telling them the answer.
+As a player, I want to copy my result as a grid, so that I can compare with friends without spoiling it.
 
 - The grid shows the feedback colors and the number of guesses
 - No joker name appears anywhere in the copied text
@@ -208,7 +208,7 @@ As a player, I want to copy a small grid of my result, so that I can compare wit
 
 ### US-9: Play puzzles I missed
 
-As a player, I want an archive of past puzzles, so that a day I missed is not lost.
+As a player, I want past puzzles kept around, so that a day I missed is not lost.
 
 - Past dates are listed and can be opened
 - An archive round plays the same way as the daily one
@@ -218,7 +218,7 @@ As a player, I want an archive of past puzzles, so that a day I missed is not lo
 
 ### US-10: Learn the rules
 
-As a new player, I want an explanation of what the colors and attributes mean, so that my first guess is not a shot in the dark.
+As a new player, I want the rules explained, so that my first guess is not blind.
 
 - A how-to-play panel explains all six attributes
 - It explains the difference between an exact match and a partial match
