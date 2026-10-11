@@ -62,3 +62,31 @@ There will be four tables:
 - guesses: records each attempt
 
 PostgreSQL works well here because it enforces the relationships between those tables for me. Foreign keys, unique constraints, and value checks are written once in the schema instead of being repeated in application code. It also has real date and boolean types, which the puzzle date and the scaling flag both need.
+## Running locally
+
+The backend needs PostgreSQL and Python 3. On a Mac with Homebrew:
+
+```bash
+brew install postgresql@17
+brew services start postgresql@17
+createdb balatdle
+psql -d balatdle -f schema.sql
+```
+
+Then set up the Python side and load the joker roster:
+
+```bash
+cd backend
+python3 -m venv .venv
+.venv/bin/pip install -r requirements.txt
+.venv/bin/python seed.py
+```
+
+The seed script can be run again at any time. It updates existing jokers instead of adding duplicates, so a balance patch is an edit to `backend/jokers.json` followed by another run.
+
+To run the tests, which use a separate database:
+
+```bash
+createdb balatdle_test
+.venv/bin/python test_seed.py
+```

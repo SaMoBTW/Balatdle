@@ -1,14 +1,18 @@
 -- Balatdle schema (PostgreSQL)
+-- Category values follow the Balatro Wiki joker table: https://balatrowiki.org/w/Jokers
 
 CREATE TABLE jokers (
     id            INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     name          TEXT    NOT NULL UNIQUE,
     rarity        TEXT    NOT NULL CHECK (rarity IN ('Common', 'Uncommon', 'Rare', 'Legendary')),
     cost          INTEGER NOT NULL CHECK (cost >= 0),
-    effect_type   TEXT    NOT NULL,  -- e.g. 'Mult', 'Chips', 'XMult', 'Economy', 'Retrigger'
-    activation    TEXT    NOT NULL,  -- e.g. 'On Scored', 'On Played', 'Passive', 'End of Round'
+    effect_type   TEXT    NOT NULL CHECK (effect_type IN ('Chips', 'Mult', 'XMult', 'Chips and Mult',
+                                                       'Economy', 'Retrigger', 'Effect')),
+    activation    TEXT    NOT NULL CHECK (activation IN ('Independent', 'On Scored', 'On Played', 'On Held',
+                                                     'On Discard', 'On Blind Select', 'On Other Jokers',
+                                                     'Mixed', 'Passive')),
     scales        BOOLEAN NOT NULL,
-    unlock_method TEXT    NOT NULL   -- e.g. 'Available from start', 'Discover 20 jokers'
+    unlock_method TEXT    NOT NULL   -- wiki wording, e.g. 'Available from start', 'Win a run'
 );
 
 CREATE TABLE daily_puzzles (

@@ -1,0 +1,1502 @@
+[
+  {
+    "name": "Joker",
+    "rarity": "Common",
+    "cost": 2,
+    "effect_type": "Mult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "+4 Mult"
+  },
+  {
+    "name": "Greedy Joker",
+    "rarity": "Common",
+    "cost": 5,
+    "effect_type": "Mult",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Played cards with Diamond suit give +3 Mult when scored"
+  },
+  {
+    "name": "Lusty Joker",
+    "rarity": "Common",
+    "cost": 5,
+    "effect_type": "Mult",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Played cards with Heart suit give +3 Mult when scored"
+  },
+  {
+    "name": "Wrathful Joker",
+    "rarity": "Common",
+    "cost": 5,
+    "effect_type": "Mult",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Played cards with Spade suit give +3 Mult when scored"
+  },
+  {
+    "name": "Gluttonous Joker",
+    "rarity": "Common",
+    "cost": 5,
+    "effect_type": "Mult",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Played cards with Club suit give +3 Mult when scored"
+  },
+  {
+    "name": "Jolly Joker",
+    "rarity": "Common",
+    "cost": 3,
+    "effect_type": "Mult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "+8 Mult if played hand contains a Pair"
+  },
+  {
+    "name": "Zany Joker",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Mult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "+12 Mult if played hand contains a Three of a Kind"
+  },
+  {
+    "name": "Mad Joker",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Mult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "+10 Mult if played hand contains a Two Pair"
+  },
+  {
+    "name": "Crazy Joker",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Mult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "+12 Mult if played hand contains a Straight"
+  },
+  {
+    "name": "Droll Joker",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Mult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "+10 Mult if played hand contains a Flush"
+  },
+  {
+    "name": "Sly Joker",
+    "rarity": "Common",
+    "cost": 3,
+    "effect_type": "Chips",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "+50 Chips if played hand contains a Pair"
+  },
+  {
+    "name": "Wily Joker",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Chips",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "+100 Chips if played hand contains a Three of a Kind"
+  },
+  {
+    "name": "Clever Joker",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Chips",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "+80 Chips if played hand contains a Two Pair"
+  },
+  {
+    "name": "Devious Joker",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Chips",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "+100 Chips if played hand contains a Straight"
+  },
+  {
+    "name": "Crafty Joker",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Chips",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "+80 Chips if played hand contains a Flush"
+  },
+  {
+    "name": "Half Joker",
+    "rarity": "Common",
+    "cost": 5,
+    "effect_type": "Mult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "+20 Mult if played hand contains 3 or fewer cards"
+  },
+  {
+    "name": "Joker Stencil",
+    "rarity": "Uncommon",
+    "cost": 8,
+    "effect_type": "XMult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "X1 Mult for each empty Joker slot Joker Stencil included (Currently X1)"
+  },
+  {
+    "name": "Four Fingers",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect_type": "Effect",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "All Flushes and Straights can be made with 4 cards"
+  },
+  {
+    "name": "Mime",
+    "rarity": "Uncommon",
+    "cost": 5,
+    "effect_type": "Retrigger",
+    "activation": "On Held",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Retrigger all card held in hand abilities"
+  },
+  {
+    "name": "Credit Card",
+    "rarity": "Common",
+    "cost": 1,
+    "effect_type": "Economy",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Go up to -$20 in debt"
+  },
+  {
+    "name": "Ceremonial Dagger",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "Mult",
+    "activation": "Independent",
+    "scales": true,
+    "unlock_method": "Available from start",
+    "effect": "When Blind is selected, destroy Joker to the right and permanently add double its sell value to this Mult (Currently +0 Mult)"
+  },
+  {
+    "name": "Banner",
+    "rarity": "Common",
+    "cost": 5,
+    "effect_type": "Chips",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "+30 Chips for each remaining discard"
+  },
+  {
+    "name": "Mystic Summit",
+    "rarity": "Common",
+    "cost": 5,
+    "effect_type": "Mult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "+15 Mult when 0 discards remaining"
+  },
+  {
+    "name": "Marble Joker",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "Effect",
+    "activation": "On Blind Select",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Adds one Stone card to the deck when Blind is selected"
+  },
+  {
+    "name": "Loyalty Card",
+    "rarity": "Uncommon",
+    "cost": 5,
+    "effect_type": "XMult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "X4 Mult every 6 hands played 5 remaining"
+  },
+  {
+    "name": "8 Ball",
+    "rarity": "Common",
+    "cost": 5,
+    "effect_type": "Effect",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "1 in 4 chance for each played 8 to create a Tarot card when scored (Must have room)"
+  },
+  {
+    "name": "Misprint",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Mult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "+0-23 Mult"
+  },
+  {
+    "name": "Dusk",
+    "rarity": "Uncommon",
+    "cost": 5,
+    "effect_type": "Retrigger",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Retrigger all played cards in final hand of the round"
+  },
+  {
+    "name": "Raised Fist",
+    "rarity": "Common",
+    "cost": 5,
+    "effect_type": "Mult",
+    "activation": "On Held",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Adds double the rank of lowest ranked card held in hand to Mult"
+  },
+  {
+    "name": "Chaos the Clown",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Effect",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "1 free Reroll per shop"
+  },
+  {
+    "name": "Fibonacci",
+    "rarity": "Uncommon",
+    "cost": 8,
+    "effect_type": "Mult",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Each played Ace, 2, 3, 5, or 8 gives +8 Mult when scored"
+  },
+  {
+    "name": "Steel Joker",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect_type": "XMult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Gives X0.2 Mult for each Steel Card in your full deck (Currently X1 Mult)"
+  },
+  {
+    "name": "Scary Face",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Chips",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Played face cards give +30 Chips when scored"
+  },
+  {
+    "name": "Abstract Joker",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Mult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "+3 Mult for each Joker card (Currently +0 Mult)"
+  },
+  {
+    "name": "Delayed Gratification",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Economy",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Earn $2 per discard if no discards are used by end of the round"
+  },
+  {
+    "name": "Hack",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "Retrigger",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Retrigger each played 2, 3, 4, or 5"
+  },
+  {
+    "name": "Pareidolia",
+    "rarity": "Uncommon",
+    "cost": 5,
+    "effect_type": "Effect",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "All cards are considered face cards"
+  },
+  {
+    "name": "Gros Michel",
+    "rarity": "Common",
+    "cost": 5,
+    "effect_type": "Mult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "+15 Mult 1 in 6 chance this card is destroyed at end of round"
+  },
+  {
+    "name": "Even Steven",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Mult",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Played cards with even rank give +4 Mult when scored (10, 8, 6, 4, 2)"
+  },
+  {
+    "name": "Odd Todd",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Chips",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Played cards with odd rank give +31 Chips when scored (A, 9, 7, 5, 3)"
+  },
+  {
+    "name": "Scholar",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Chips and Mult",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Played Aces give +20 Chips and +4 Mult when scored"
+  },
+  {
+    "name": "Business Card",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Economy",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Played face cards have a 1 in 2 chance to give $2 when scored"
+  },
+  {
+    "name": "Supernova",
+    "rarity": "Common",
+    "cost": 5,
+    "effect_type": "Mult",
+    "activation": "Independent",
+    "scales": true,
+    "unlock_method": "Available from start",
+    "effect": "Adds the number of times poker hand has been played this run to Mult"
+  },
+  {
+    "name": "Ride the Bus",
+    "rarity": "Common",
+    "cost": 6,
+    "effect_type": "Mult",
+    "activation": "Mixed",
+    "scales": true,
+    "unlock_method": "Available from start",
+    "effect": "This Joker gains +1 Mult per consecutive hand played without a scoring face card (Currently +0 Mult)"
+  },
+  {
+    "name": "Space Joker",
+    "rarity": "Uncommon",
+    "cost": 5,
+    "effect_type": "Effect",
+    "activation": "On Played",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "1 in 4 chance to upgrade level of played poker hand"
+  },
+  {
+    "name": "Egg",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Economy",
+    "activation": "Passive",
+    "scales": true,
+    "unlock_method": "Available from start",
+    "effect": "Gains $3 of sell value at end of round"
+  },
+  {
+    "name": "Burglar",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "Effect",
+    "activation": "On Blind Select",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "When Blind is selected, gain +3 Hands and lose all discards"
+  },
+  {
+    "name": "Blackboard",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "XMult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "X3 Mult if all cards held in hand are Spades or Clubs"
+  },
+  {
+    "name": "Runner",
+    "rarity": "Common",
+    "cost": 5,
+    "effect_type": "Chips",
+    "activation": "Mixed",
+    "scales": true,
+    "unlock_method": "Available from start",
+    "effect": "Gains +15 Chips if played hand contains a Straight (Currently +0 Chips)"
+  },
+  {
+    "name": "Ice Cream",
+    "rarity": "Common",
+    "cost": 5,
+    "effect_type": "Chips",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "+100 Chips -5 Chips for every hand played"
+  },
+  {
+    "name": "DNA",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect_type": "Effect",
+    "activation": "On Played",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "If first hand of round has only 1 card, add a permanent copy to deck and draw it to hand"
+  },
+  {
+    "name": "Splash",
+    "rarity": "Common",
+    "cost": 3,
+    "effect_type": "Effect",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Every played card counts in scoring"
+  },
+  {
+    "name": "Blue Joker",
+    "rarity": "Common",
+    "cost": 5,
+    "effect_type": "Chips",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "+2 Chips for each remaining card in deck (Currently +104 Chips)"
+  },
+  {
+    "name": "Sixth Sense",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "Effect",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "If first hand of round is a single 6, destroy it and create a Spectral card (Must have room)"
+  },
+  {
+    "name": "Constellation",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "XMult",
+    "activation": "Independent",
+    "scales": true,
+    "unlock_method": "Available from start",
+    "effect": "This Joker gains X0.1 Mult every time a Planet card is used (Currently X1 Mult)"
+  },
+  {
+    "name": "Hiker",
+    "rarity": "Uncommon",
+    "cost": 5,
+    "effect_type": "Chips",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Every played card permanently gains +5 Chips when scored"
+  },
+  {
+    "name": "Faceless Joker",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Economy",
+    "activation": "On Discard",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Earn $5 if 3 or more face cards are discarded at the same time"
+  },
+  {
+    "name": "Green Joker",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Mult",
+    "activation": "Mixed",
+    "scales": true,
+    "unlock_method": "Available from start",
+    "effect": "+1 Mult per hand played -1 Mult per discard (Currently +0 Mult)"
+  },
+  {
+    "name": "Superposition",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Effect",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Create a Tarot card if poker hand contains an Ace and a Straight (Must have room)"
+  },
+  {
+    "name": "To Do List",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Economy",
+    "activation": "On Played",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Earn $4 if poker hand is a [Poker Hand], poker hand changes at end of round"
+  },
+  {
+    "name": "Cavendish",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "XMult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "X3 Mult 1 in 1000 chance this card is destroyed at the end of round"
+  },
+  {
+    "name": "Card Sharp",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "XMult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "X3 Mult if played poker hand has already been played this round"
+  },
+  {
+    "name": "Red Card",
+    "rarity": "Common",
+    "cost": 5,
+    "effect_type": "Mult",
+    "activation": "Independent",
+    "scales": true,
+    "unlock_method": "Available from start",
+    "effect": "This Joker gains +3 Mult when any Booster Pack is skipped (Currently +0 Mult)"
+  },
+  {
+    "name": "Madness",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect_type": "XMult",
+    "activation": "Independent",
+    "scales": true,
+    "unlock_method": "Available from start",
+    "effect": "When Small Blind or Big Blind is selected, gain X0.5 Mult and destroy a random Joker (Currently X1 Mult)"
+  },
+  {
+    "name": "Square Joker",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Chips",
+    "activation": "Mixed",
+    "scales": true,
+    "unlock_method": "Available from start",
+    "effect": "This Joker gains +4 Chips if played hand has exactly 4 cards (Currently 0 Chips)"
+  },
+  {
+    "name": "Séance",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "Effect",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "If poker hand is a Straight Flush, create a random Spectral card (Must have room)"
+  },
+  {
+    "name": "Riff-Raff",
+    "rarity": "Common",
+    "cost": 6,
+    "effect_type": "Effect",
+    "activation": "On Blind Select",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "When Blind is selected, create 2 Common Jokers (Must have room)"
+  },
+  {
+    "name": "Vampire",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect_type": "XMult",
+    "activation": "Mixed",
+    "scales": true,
+    "unlock_method": "Available from start",
+    "effect": "This Joker gains X0.1 Mult per scoring Enhanced card played, removes card Enhancement (Currently X1 Mult)"
+  },
+  {
+    "name": "Shortcut",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect_type": "Effect",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Allows Straights to be made with gaps of 1 rank (ex: 10 8 6 5 3)"
+  },
+  {
+    "name": "Hologram",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect_type": "XMult",
+    "activation": "Independent",
+    "scales": true,
+    "unlock_method": "Available from start",
+    "effect": "This Joker gains X0.25 Mult every time a playing card is added to your deck (Currently X1 Mult)"
+  },
+  {
+    "name": "Vagabond",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect_type": "Effect",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Create a Tarot card if hand is played with $4 or less"
+  },
+  {
+    "name": "Baron",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect_type": "XMult",
+    "activation": "On Held",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Each King held in hand gives X1.5 Mult"
+  },
+  {
+    "name": "Cloud 9",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect_type": "Economy",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Earn $1 for each 9 in your full deck at end of round (Currently $4)"
+  },
+  {
+    "name": "Rocket",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "Economy",
+    "activation": "Passive",
+    "scales": true,
+    "unlock_method": "Available from start",
+    "effect": "Earn $1 at end of round. Payout increases by $2 when Boss Blind is defeated"
+  },
+  {
+    "name": "Obelisk",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect_type": "XMult",
+    "activation": "Mixed",
+    "scales": true,
+    "unlock_method": "Available from start",
+    "effect": "This Joker gains X0.2 Mult per consecutive hand played without playing your most played poker hand (Currently X1 Mult)"
+  },
+  {
+    "name": "Midas Mask",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect_type": "Effect",
+    "activation": "On Played",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "All played face cards become Gold cards when scored"
+  },
+  {
+    "name": "Luchador",
+    "rarity": "Uncommon",
+    "cost": 5,
+    "effect_type": "Effect",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Sell this card to disable the current Boss Blind"
+  },
+  {
+    "name": "Photograph",
+    "rarity": "Common",
+    "cost": 5,
+    "effect_type": "XMult",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "First played face card gives X2 Mult when scored"
+  },
+  {
+    "name": "Gift Card",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "Economy",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Add $1 of sell value to every Joker and Consumable card at end of round"
+  },
+  {
+    "name": "Turtle Bean",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "Effect",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "+5 hand size, reduces by 1 each round"
+  },
+  {
+    "name": "Erosion",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "Mult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "+4 Mult for each card below [the deck's starting size] in your full deck (Currently +0 Mult)"
+  },
+  {
+    "name": "Reserved Parking",
+    "rarity": "Common",
+    "cost": 6,
+    "effect_type": "Economy",
+    "activation": "On Held",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Each face card held in hand has a 1 in 2 chance to give $1"
+  },
+  {
+    "name": "Mail-In Rebate",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Economy",
+    "activation": "On Discard",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Earn $5 for each discarded [rank], rank changes every round"
+  },
+  {
+    "name": "To the Moon",
+    "rarity": "Uncommon",
+    "cost": 5,
+    "effect_type": "Economy",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Earn an extra $1 of interest for every $5 you have at end of round"
+  },
+  {
+    "name": "Hallucination",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Effect",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "1 in 2 chance to create a Tarot card when any Booster Pack is opened (Must have room)"
+  },
+  {
+    "name": "Fortune Teller",
+    "rarity": "Common",
+    "cost": 6,
+    "effect_type": "Mult",
+    "activation": "Independent",
+    "scales": true,
+    "unlock_method": "Available from start",
+    "effect": "+1 Mult per Tarot card used this run (Currently +0)"
+  },
+  {
+    "name": "Juggler",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Effect",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "+1 hand size"
+  },
+  {
+    "name": "Drunkard",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Effect",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "+1 discard each round"
+  },
+  {
+    "name": "Stone Joker",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "Chips",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Gives +25 Chips for each Stone Card in your full deck (Currently +0 Chips)"
+  },
+  {
+    "name": "Golden Joker",
+    "rarity": "Common",
+    "cost": 6,
+    "effect_type": "Economy",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Earn $4 at end of round"
+  },
+  {
+    "name": "Lucky Cat",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "XMult",
+    "activation": "Mixed",
+    "scales": true,
+    "unlock_method": "Available from start",
+    "effect": "This Joker gains X0.25 Mult every time a Lucky card successfully triggers (Currently X1 Mult)"
+  },
+  {
+    "name": "Baseball Card",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect_type": "XMult",
+    "activation": "On Other Jokers",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Uncommon Jokers each give X1.5 Mult"
+  },
+  {
+    "name": "Bull",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "Chips",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "+2 Chips for each $1 you have (Currently +0 Chips)"
+  },
+  {
+    "name": "Diet Cola",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "Effect",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Sell this card to create a free Double Tag"
+  },
+  {
+    "name": "Trading Card",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "Economy",
+    "activation": "On Discard",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "If first discard of round has only 1 card, destroy it and earn $3"
+  },
+  {
+    "name": "Flash Card",
+    "rarity": "Uncommon",
+    "cost": 5,
+    "effect_type": "Mult",
+    "activation": "Independent",
+    "scales": true,
+    "unlock_method": "Available from start",
+    "effect": "This Joker gains +2 Mult per reroll in the shop (Currently +0 Mult)"
+  },
+  {
+    "name": "Popcorn",
+    "rarity": "Common",
+    "cost": 5,
+    "effect_type": "Mult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "+20 Mult -4 Mult per round played"
+  },
+  {
+    "name": "Spare Trousers",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "Mult",
+    "activation": "Mixed",
+    "scales": true,
+    "unlock_method": "Available from start",
+    "effect": "This Joker gains +2 Mult if played hand contains a Two Pair (Currently +0 Mult)"
+  },
+  {
+    "name": "Ancient Joker",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect_type": "XMult",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Each played card with [suit] gives X1.5 Mult when scored, suit changes at end of round"
+  },
+  {
+    "name": "Ramen",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "XMult",
+    "activation": "Mixed",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "X2 Mult, loses X0.01 Mult per card discarded"
+  },
+  {
+    "name": "Walkie Talkie",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Chips and Mult",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Each played 10 or 4 gives +10 Chips and +4 Mult when scored"
+  },
+  {
+    "name": "Seltzer",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "Retrigger",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Retrigger all cards played for the next 10 hands"
+  },
+  {
+    "name": "Castle",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "Chips",
+    "activation": "Mixed",
+    "scales": true,
+    "unlock_method": "Available from start",
+    "effect": "This Joker gains +3 Chips per discarded [suit] card, suit changes every round (Currently +0 Chips)"
+  },
+  {
+    "name": "Smiley Face",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Mult",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Available from start",
+    "effect": "Played face cards give +5 Mult when scored"
+  },
+  {
+    "name": "Campfire",
+    "rarity": "Rare",
+    "cost": 9,
+    "effect_type": "XMult",
+    "activation": "Independent",
+    "scales": true,
+    "unlock_method": "Available from start",
+    "effect": "This Joker gains X0.25 Mult for each card sold, resets when Boss Blind is defeated (Currently X1 Mult)"
+  },
+  {
+    "name": "Golden Ticket",
+    "rarity": "Common",
+    "cost": 5,
+    "effect_type": "Economy",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Play a 5 card hand that contains only Gold cards",
+    "effect": "Played Gold cards earn $4 when scored"
+  },
+  {
+    "name": "Mr. Bones",
+    "rarity": "Uncommon",
+    "cost": 5,
+    "effect_type": "Effect",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Lose 5 runs",
+    "effect": "Prevents Death if chips scored are at least 25% of required chips self destructs"
+  },
+  {
+    "name": "Acrobat",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "XMult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Play 200 hands",
+    "effect": "X3 Mult on final hand of round"
+  },
+  {
+    "name": "Sock and Buskin",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "Retrigger",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Play a total of 300 face cards",
+    "effect": "Retrigger all played face cards"
+  },
+  {
+    "name": "Swashbuckler",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Mult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Sell a total of 20 Joker cards",
+    "effect": "Adds the sell value of all other owned Jokers to Mult (Currently +1 Mult)"
+  },
+  {
+    "name": "Troubadour",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "Effect",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Win 5 consecutive rounds by playing only 1 hand",
+    "effect": "+2 hand size, -1 hand each round"
+  },
+  {
+    "name": "Certificate",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "Effect",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Have a Gold playing card with a Gold Seal",
+    "effect": "When round begins, add a random playing card with a random seal to your hand"
+  },
+  {
+    "name": "Smeared Joker",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect_type": "Effect",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Have at least 3 Wild Card in your deck",
+    "effect": "Hearts and Diamonds count as the same suit, Spades and Clubs count as the same suit"
+  },
+  {
+    "name": "Throwback",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "XMult",
+    "activation": "Independent",
+    "scales": true,
+    "unlock_method": "Continue a saved run from the main menu",
+    "effect": "X0.25 Mult for each Blind skipped this run (Currently X1 Mult)"
+  },
+  {
+    "name": "Hanging Chad",
+    "rarity": "Common",
+    "cost": 4,
+    "effect_type": "Retrigger",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Beat a Boss Blind with a High Card",
+    "effect": "Retrigger first played card used in scoring 2 additional times"
+  },
+  {
+    "name": "Rough Gem",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect_type": "Economy",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Have at least 30 cards with Diamond suit in your deck",
+    "effect": "Played cards with Diamond suit earn $1 when scored"
+  },
+  {
+    "name": "Bloodstone",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect_type": "XMult",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Have at least 30 cards with Heart suit in your deck",
+    "effect": "1 in 2 chance for played cards with Heart suit to give X1.5 Mult when scored"
+  },
+  {
+    "name": "Arrowhead",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect_type": "Chips",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Have at least 30 cards with Spade suit in your deck",
+    "effect": "Played cards with Spade suit give +50 Chips when scored"
+  },
+  {
+    "name": "Onyx Agate",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect_type": "Mult",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Have at least 30 cards with Club suit in your deck",
+    "effect": "Played cards with Club suit give +7 Mult when scored"
+  },
+  {
+    "name": "Glass Joker",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "XMult",
+    "activation": "Independent",
+    "scales": true,
+    "unlock_method": "Have at least 5 Glass Cards in your deck",
+    "effect": "This Joker gains X0.75 Mult for every Glass Card that is destroyed (Currently X1 Mult)"
+  },
+  {
+    "name": "Showman",
+    "rarity": "Uncommon",
+    "cost": 5,
+    "effect_type": "Effect",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Reach Ante level 4",
+    "effect": "Joker, Tarot, Planet, and Spectral cards may appear multiple times"
+  },
+  {
+    "name": "Flower Pot",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "XMult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Reach Ante level 8",
+    "effect": "X3 Mult if poker hand contains a Diamond card, Club card, Heart card, and Spade card"
+  },
+  {
+    "name": "Blueprint",
+    "rarity": "Rare",
+    "cost": 10,
+    "effect_type": "Effect",
+    "activation": "Mixed",
+    "scales": false,
+    "unlock_method": "Win a run",
+    "effect": "Copies ability of Joker to the right"
+  },
+  {
+    "name": "Wee Joker",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect_type": "Chips",
+    "activation": "Mixed",
+    "scales": true,
+    "unlock_method": "Win a run in 18 or fewer rounds",
+    "effect": "This Joker gains +8 Chips when each played 2 is scored (Currently +0 Chips)"
+  },
+  {
+    "name": "Merry Andy",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect_type": "Effect",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Win a run in 12 or fewer rounds",
+    "effect": "+3 discards each round, -1 hand size"
+  },
+  {
+    "name": "Oops! All 6s",
+    "rarity": "Uncommon",
+    "cost": 4,
+    "effect_type": "Effect",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "In one hand, earn at least 10,000 chips",
+    "effect": "Doubles all listed probabilities (ex: 1 in 3 -> 2 in 3)"
+  },
+  {
+    "name": "The Idol",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "XMult",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "In one hand, earn at least 1,000,000 chips",
+    "effect": "Each played [rank] of [suit] gives X2 Mult when scored Card changes every round"
+  },
+  {
+    "name": "Seeing Double",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "XMult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Play a hand that contains four 7 of Clubs",
+    "effect": "X2 Mult if played hand has a scoring Club card and a scoring card of any other suit"
+  },
+  {
+    "name": "Matador",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect_type": "Economy",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Defeat a Boss Blind in 1 hand without using any discards",
+    "effect": "Earn $8 if played hand triggers the Boss Blind ability"
+  },
+  {
+    "name": "Hit the Road",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect_type": "XMult",
+    "activation": "Mixed",
+    "scales": true,
+    "unlock_method": "Discard 5 Jacks at the same time",
+    "effect": "This Joker gains X0.5 Mult for every Jack discarded this round (Currently X1 Mult)"
+  },
+  {
+    "name": "The Duo",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect_type": "XMult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Win a run without playing a Pair",
+    "effect": "X2 Mult if played hand contains a Pair"
+  },
+  {
+    "name": "The Trio",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect_type": "XMult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Win a run without playing a Three of a Kind",
+    "effect": "X3 Mult if played hand contains a Three of a Kind"
+  },
+  {
+    "name": "The Family",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect_type": "XMult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Win a run without playing a Four of a Kind",
+    "effect": "X4 Mult if played hand contains a Four of a Kind"
+  },
+  {
+    "name": "The Order",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect_type": "XMult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Win a run without playing a Straight",
+    "effect": "X3 Mult if played hand contains a Straight"
+  },
+  {
+    "name": "The Tribe",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect_type": "XMult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Win a run without playing a Flush",
+    "effect": "X2 Mult if played hand contains a Flush"
+  },
+  {
+    "name": "Stuntman",
+    "rarity": "Rare",
+    "cost": 7,
+    "effect_type": "Chips",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Earn at least 100 million (100,000,000) Chips in a single hand",
+    "effect": "+250 Chips, -2 hand size"
+  },
+  {
+    "name": "Invisible Joker",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect_type": "Effect",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Win a run without ever having more than 4 Jokers",
+    "effect": "After 2 rounds, sell this card to Duplicate a random Joker (Currently 0 /2) (Removes Negative from copy)"
+  },
+  {
+    "name": "Brainstorm",
+    "rarity": "Rare",
+    "cost": 10,
+    "effect_type": "Effect",
+    "activation": "Mixed",
+    "scales": false,
+    "unlock_method": "Discard a Royal Flush",
+    "effect": "Copies the ability of leftmost Joker"
+  },
+  {
+    "name": "Satellite",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "Economy",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Have at least $400",
+    "effect": "Earn $1 at end of round per unique Planet card used this run"
+  },
+  {
+    "name": "Shoot the Moon",
+    "rarity": "Common",
+    "cost": 5,
+    "effect_type": "Mult",
+    "activation": "On Held",
+    "scales": false,
+    "unlock_method": "Play every Heart card in your deck in one round",
+    "effect": "Each Queen held in hand gives +13 Mult"
+  },
+  {
+    "name": "Driver's License",
+    "rarity": "Rare",
+    "cost": 7,
+    "effect_type": "XMult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Enhance 16 cards in your deck",
+    "effect": "X3 Mult if you have at least 16 Enhanced cards in your full deck (Currently 0)"
+  },
+  {
+    "name": "Cartomancer",
+    "rarity": "Uncommon",
+    "cost": 6,
+    "effect_type": "Effect",
+    "activation": "On Blind Select",
+    "scales": false,
+    "unlock_method": "Discover every Tarot card",
+    "effect": "Create a Tarot card when Blind is selected (Must have room)"
+  },
+  {
+    "name": "Astronomer",
+    "rarity": "Uncommon",
+    "cost": 8,
+    "effect_type": "Effect",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Discover every Planet card",
+    "effect": "All Planet cards and Celestial Packs in the shop are free"
+  },
+  {
+    "name": "Burnt Joker",
+    "rarity": "Rare",
+    "cost": 8,
+    "effect_type": "Effect",
+    "activation": "On Discard",
+    "scales": false,
+    "unlock_method": "Sell 50 cards",
+    "effect": "Upgrade the level of the first discarded poker hand each round"
+  },
+  {
+    "name": "Bootstraps",
+    "rarity": "Uncommon",
+    "cost": 7,
+    "effect_type": "Mult",
+    "activation": "Independent",
+    "scales": false,
+    "unlock_method": "Have at least 2 Polychrome Jokers at the same time",
+    "effect": "+2 Mult for every $5 you have (Currently +0 Mult)"
+  },
+  {
+    "name": "Canio",
+    "rarity": "Legendary",
+    "cost": 20,
+    "effect_type": "XMult",
+    "activation": "Mixed",
+    "scales": true,
+    "unlock_method": "Find this Joker from the Soul card",
+    "effect": "This Joker gains X1 Mult when a face card is destroyed (Currently X1 Mult)"
+  },
+  {
+    "name": "Triboulet",
+    "rarity": "Legendary",
+    "cost": 20,
+    "effect_type": "XMult",
+    "activation": "On Scored",
+    "scales": false,
+    "unlock_method": "Find this Joker from the Soul card",
+    "effect": "Played Kings and Queens each give X2 Mult when scored"
+  },
+  {
+    "name": "Yorick",
+    "rarity": "Legendary",
+    "cost": 20,
+    "effect_type": "XMult",
+    "activation": "Mixed",
+    "scales": true,
+    "unlock_method": "Find this Joker from the Soul card",
+    "effect": "This Joker gains X1 Mult every 23 [23] cards discarded (Currently X1 Mult)"
+  },
+  {
+    "name": "Chicot",
+    "rarity": "Legendary",
+    "cost": 20,
+    "effect_type": "Effect",
+    "activation": "On Blind Select",
+    "scales": false,
+    "unlock_method": "Find this Joker from the Soul card",
+    "effect": "Disables effect of every Boss Blind"
+  },
+  {
+    "name": "Perkeo",
+    "rarity": "Legendary",
+    "cost": 20,
+    "effect_type": "Effect",
+    "activation": "Passive",
+    "scales": false,
+    "unlock_method": "Find this Joker from the Soul card",
+    "effect": "Creates a Negative copy of 1 random consumable card in your possession at the end of the shop"
+  }
+]

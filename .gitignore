@@ -2,3 +2,5 @@ backlog.md
 balatdle-backlog-paste.md
 .DS_Store
 dump/
+.venv/
+__pycache__/
