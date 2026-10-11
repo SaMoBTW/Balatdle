@@ -67,7 +67,7 @@ Third, the following are out of scope for this iteration and are not planned: us
 
 There are two sources of data, and they work differently.
 
-**The joker roster is read from a file.** The roster lives in `jokers.json`, which is committed to the repository. Each entry is one joker, with its name and the six attributes the game compares. A Python seed script reads that file and inserts the rows into the `jokers` table. The application never fetches this data at runtime.
+**The joker roster is read from a file.** The roster lives in `jokers.json`, which is committed to the repository. Each entry is one joker, with its name, the six attributes the game compares, and its effect text. The values were compiled once from the Balatro Wiki's joker table. A Python seed script reads that file and inserts the rows into the `jokers` table. The application never fetches this data at runtime.
 
 I chose a committed file over scraping the Balatro wiki for three reasons. The roster changes only when the game gets a balance patch, so there is nothing to gain from fetching it on every run. A scraper would make my game depend on a website I do not control, and a layout change on that site would break my game. And a file in the repository is reviewable, which means an attribute that produces a confusing clue can be corrected in one place and seen in the diff.
 
@@ -78,10 +78,11 @@ An example entry looks like this:
   "name": "Blueprint",
   "rarity": "Rare",
   "cost": 10,
-  "effect_type": "Copy",
-  "activation": "Passive",
+  "effect_type": "Effect",
+  "activation": "Mixed",
   "scales": false,
-  "unlock_method": "Discover 20 jokers"
+  "unlock_method": "Win a run",
+  "effect": "Copies ability of Joker to the right"
 }
 ```
 
