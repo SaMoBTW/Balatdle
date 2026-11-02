@@ -20,6 +20,7 @@ erDiagram
         TEXT    activation
         BOOLEAN scales
         TEXT    unlock_method
+        TEXT    effect
     }
     DAILY_PUZZLES {
         DATE    puzzle_date PK
@@ -47,7 +48,7 @@ erDiagram
 
 ## Notes on the design
 
-**jokers** holds one row per joker, with the six attributes the game compares. `rarity`, `effect_type`, and `activation` are limited by CHECK constraints to the category names used in the Balatro Wiki's joker table, so a typo in the seed file fails at insert time instead of showing up as a broken clue during a game.
+**jokers** holds one row per joker, with the six attributes the game compares and the card's effect text, which is only shown in the guess suggestions. `rarity`, `effect_type`, and `activation` are limited by CHECK constraints to the category names used in the Balatro Wiki's joker table, so a typo in the seed file fails at insert time instead of showing up as a broken clue during a game.
 
 **daily_puzzles** uses the date itself as the primary key, so there can only ever be one puzzle per day. The answer is a foreign key to `jokers`, and it is never sent to the browser. The backend reads it when checking a guess.
 

@@ -16,7 +16,7 @@ First, there is no account. A player opens the page and starts guessing. Streak 
 
 Second, the answer is checked on the server. The joker of the day is never sent to the browser before the puzzle is solved. A player who opens developer tools should not be able to read the answer out of the page.
 
-Third, the following are out of scope for this iteration and are not planned: user accounts and passwords, real-time multiplayer, leaderboards across players, and any guess mode built on Balatro's art or in-game text. The attribute mode needs no game assets, which keeps the project clear of the question of using someone else's artwork.
+Third, the following are out of scope for this iteration and are not planned: user accounts and passwords, real-time multiplayer, leaderboards across players, and any guess mode built on Balatro's art or in-game text. Guessing works from attributes alone. The joker sprites shown in the suggestions and on each guess come from Balatro by LocalThunk, published by Playstack, by way of the Balatro Wiki, and the page credits them. They help a player recognise a joker but are never what the player guesses from.
 
 ---
 
@@ -34,7 +34,7 @@ Third, the following are out of scope for this iteration and are not planned: us
 | FR-6 | For each guess, the system shall return feedback on six attributes: rarity, cost, effect type, activation timing, whether the effect scales, and unlock method. |
 | FR-7 | Feedback for each attribute shall be one of three results: exact match, partial match, or no match. For cost, the system shall also return whether the answer's cost is higher or lower than the guessed cost. |
 | FR-8 | The system shall display every guess the player has made for the current puzzle, with its feedback, so the player can compare guesses. |
-| FR-9 | Guesses shall be unlimited. The round ends when the player names the correct joker. |
+| FR-9 | Each player shall get 8 guesses per puzzle. The round ends when the player names the correct joker or uses the eighth guess, and a lost round reveals the answer. |
 | FR-10 | When the player guesses correctly, the system shall show a win state that names the answer and reports how many guesses were used. |
 | FR-11 | The system shall restore a player's in-progress round if they reload the page or return later the same day. |
 | FR-12 | The system shall identify a returning player by a random token stored in the browser, without requiring an account, a password, or an email address. |
@@ -160,7 +160,7 @@ As a player, I want color-coded feedback on all six attributes, so that I can na
 - Each attribute shows as an exact match, a partial match, or no match
 - Cost shows an arrow indicating whether the answer is higher or lower
 - Every guess so far is listed, in an order that makes clear which came first
-- Guesses are unlimited
+- Each player gets 8 guesses, and the page shows how many are left
 - Every cell carries a text label or icon as well as a color, and the board works with a keyboard
 
 *Covers FR-6, FR-7, FR-8, FR-9.*

@@ -48,15 +48,15 @@ api.today = lambda: DAY
 
 # two players on the same date get the same puzzle
 first, second = client.get("/api/puzzle"), client.get("/api/puzzle")
-assert first.status_code == 200 and first.get_json() == second.get_json() == {"date": "2026-10-11", "number": 1}
+assert first.status_code == 200 and first.get_json() == second.get_json() == {"date": "2026-10-11", "number": 1, "max_guesses": 8}
 
 # the response carries the date and number only, never the answer
-assert set(first.get_json()) == {"date", "number"}
+assert set(first.get_json()) == {"date", "number", "max_guesses"}
 assert answer_name not in first.get_data(as_text=True)
 
 # the next day is a different, later puzzle
 api.today = lambda: DAY + timedelta(days=1)
-assert client.get("/api/puzzle").get_json() == {"date": "2026-10-12", "number": 2}
+assert client.get("/api/puzzle").get_json() == {"date": "2026-10-12", "number": 2, "max_guesses": 8}
 
 # a day with nothing scheduled is a clear error, not a crash
 api.today = lambda: DAY - timedelta(days=1)
@@ -78,9 +78,12 @@ def guess_count():
         return conn.execute("SELECT count(*) FROM guesses").fetchone()[0]
 
 
-# autocomplete gets every joker name and nothing else
-names = client.get("/api/jokers").get_json()
-assert set(names) == {"names"} and len(names["names"]) == 150 and "Blueprint" in names["names"]
+# suggestions get every joker's name, rarity and effect text, and nothing else
+listing = client.get("/api/jokers").get_json()["jokers"]
+assert len(listing) == 150 and all(set(j) == {"name", "rarity", "effect"} for j in listing)
+assert next(j for j in listing if j["name"] == "Blueprint") == {
+    "name": "Blueprint", "rarity": "Rare", "effect": "Copies ability of Joker to the right"}
+names = {"names": [j["name"] for j in listing]}
 
 # a real name is recorded, matched without caring about case or stray spaces
 wrong = next(n for n in names["names"] if n != answer_name)
@@ -185,4 +188,21 @@ with db.connect() as conn:
         "SELECT column_name FROM information_schema.columns WHERE table_name = 'users'")}
 assert columns == {"id", "token", "created_at", "current_streak", "max_streak", "games_played", "games_won"}, columns
 
-print("US-2 to US-6 backend checks passed.")
+# ---- guess limit: 8 per player per day ----
+wrongs = [n for n in names["names"] if n != answer_name][:9]
+for i, name in enumerate(wrongs[:8], start=1):
+    r = guess(name, token="unlucky")
+    assert r.status_code == 201, r.get_json()
+    body = r.get_json()
+    if i < 8:
+        # the answer stays hidden while the round is still going
+        assert body["lost"] is False and "answer" not in body and answer_name not in r.get_data(as_text=True)
+# the eighth miss ends the round and reveals the answer
+assert body["lost"] is True and body["answer"] == answer_name
+# a ninth guess is refused and not counted
+ninth = guess(wrongs[8], token="unlucky")
+assert ninth.status_code == 409 and "out of guesses" in ninth.get_json()["error"]
+restored = progress("unlucky").get_json()["guesses"]
+assert len(restored) == 8 and restored[-1]["lost"] and restored[-1]["answer"] == answer_name
+
+print("US-2 to US-6 and guess-limit backend checks passed.")

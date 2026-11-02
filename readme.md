@@ -82,7 +82,7 @@ python3 -m venv .venv
 .venv/bin/python seed.py
 ```
 
-The seed script can be run again at any time. It updates existing jokers instead of adding duplicates, so a balance patch is an edit to `backend/jokers.json` followed by another run.
+The seed script can be run again at any time. It updates existing jokers instead of adding duplicates, so a balance patch is an edit to `backend/jokers.json` followed by another run. If the patch adds jokers, `.venv/bin/python fetch_sprites.py` downloads their pictures from the Balatro Wiki into `frontend/public/jokers/`.
 
 Next, assign answers to the coming year and start the API. The schedule never changes a date that already has an answer, and no joker repeats within 100 days.
 

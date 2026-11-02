@@ -12,7 +12,8 @@ CREATE TABLE jokers (
                                                      'On Discard', 'On Blind Select', 'On Other Jokers',
                                                      'Mixed', 'Passive')),
     scales        BOOLEAN NOT NULL,
-    unlock_method TEXT    NOT NULL   -- wiki wording, e.g. 'Available from start', 'Win a run'
+    unlock_method TEXT    NOT NULL,  -- wiki wording, e.g. 'Available from start', 'Win a run'
+    effect        TEXT    NOT NULL   -- the card's effect text, shown in suggestions, never compared
 );
 
 CREATE TABLE daily_puzzles (
