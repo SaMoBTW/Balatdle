@@ -87,13 +87,19 @@ export default function App() {
   }, [win])
 
   useEffect(() => {
-    Promise.all([getJson('/api/puzzle'), getJson('/api/jokers')])
-      .then(([p, j]) => {
+    const progress = getJson('/api/progress', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ token }),
+    })
+    Promise.all([getJson('/api/puzzle'), getJson('/api/jokers'), progress])
+      .then(([p, j, saved]) => {
         setPuzzle(p)
         setNames(j.names)
+        setGuesses(saved.guesses.slice().reverse()) // newest first, as new guesses are added
       })
       .catch((err) => setLoadError(err.message))
-  }, [])
+  }, [token])
 
   async function submit(e) {
     e.preventDefault()

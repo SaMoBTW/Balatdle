@@ -1,4 +1,4 @@
-"""Checks the backend side of US-2 to US-5 against a throwaway database.
+"""Checks the backend side of US-2 to US-6 against a throwaway database.
 
 Usage:  createdb balatdle_test && python test_app.py
 """
@@ -146,4 +146,43 @@ with db.connect() as conn:
 # another player can still play
 assert guess(other, token="player-two").status_code == 201
 
-print("US-2 to US-5 backend checks passed.")
+# ---- US-6: pick up where I left off ----
+def progress(token):
+    return client.post("/api/progress", json={"token": token})
+
+
+def players():
+    with db.connect() as conn:
+        return {r[0] for r in conn.execute("SELECT token FROM users")}
+
+
+# a first visit creates the player record before any guess is made
+assert "fresh-visitor" not in players()
+fresh = progress("fresh-visitor")
+assert fresh.status_code == 200 and fresh.get_json() == {"guesses": []}
+assert "fresh-visitor" in players()
+
+# a mid-round reload gets back every guess with the same feedback it had when it was made
+mid = progress("player-two").get_json()["guesses"]
+assert [g["number"] for g in mid] == [1, 2] and not any(g["solved"] for g in mid)
+
+# returning after a win restores the finished round, including the winning guess
+done = progress("player-one").get_json()["guesses"]
+assert [g["name"] for g in done] == [wrong, answer_name] and done[-1]["solved"]
+assert done[0] == first.get_json() and done[1] == second.get_json()
+
+# the next day starts empty for the same player
+api.today = lambda: DAY + timedelta(days=1)
+assert progress("player-one").get_json() == {"guesses": []}
+api.today = lambda: DAY
+
+# no token, no record
+assert client.post("/api/progress", json={}).status_code == 400
+
+# the players table holds an anonymous token and game counts, nothing personal
+with db.connect() as conn:
+    columns = {r[0] for r in conn.execute(
+        "SELECT column_name FROM information_schema.columns WHERE table_name = 'users'")}
+assert columns == {"id", "token", "created_at", "current_streak", "max_streak", "games_played", "games_won"}, columns
+
+print("US-2 to US-6 backend checks passed.")
