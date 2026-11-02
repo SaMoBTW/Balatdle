@@ -13,6 +13,8 @@ from evaluate import compare
 
 app = Flask(__name__)
 
+MAX_GUESSES = 8  # a round ends on a win or after this many guesses
+
 
 def today(now=None):
     """The puzzle date. It rolls over at 00:00 UTC, so every player changes day at the same moment."""
@@ -24,7 +26,7 @@ def roster():
     """Every joker with its attributes, keyed by lowercase name. Loaded once and kept in memory,
     so checking a guessed name never touches the database. ponytail: restart the API after re-seeding."""
     with db.connect(row_factory=dict_row) as conn:
-        rows = conn.execute("SELECT id, name, rarity, cost, effect_type, activation, scales, unlock_method FROM jokers")
+        rows = conn.execute("SELECT id, name, rarity, cost, effect_type, activation, scales, unlock_method, effect FROM jokers")
         return {row["name"].casefold(): row for row in rows}
 
 
@@ -38,13 +40,15 @@ def puzzle():
             " FROM daily_puzzles WHERE puzzle_date = %s", [day]).fetchone()
     if row is None:
         return jsonify(error="No puzzle is scheduled for today."), 503
-    return jsonify(date=row[0].isoformat(), number=row[1])
+    return jsonify(date=row[0].isoformat(), number=row[1], max_guesses=MAX_GUESSES)
 
 
 @app.get("/api/jokers")
 def jokers():
-    """Joker names for autocomplete. All 150 are listed, so the list says nothing about the answer."""
-    return jsonify(names=sorted(j["name"] for j in roster().values()))
+    """Every joker's name, rarity and effect text for the suggestions. All 150 are listed,
+    so the list says nothing about the answer."""
+    return jsonify(jokers=sorted(({k: j[k] for k in ("name", "rarity", "effect")} for j in roster().values()),
+                                 key=lambda j: j["name"]))
 
 
 def token_from(body):
@@ -65,10 +69,15 @@ def joker_by_id(joker_id):
 
 
 def result(joker, number, answer_id):
-    """One guess as the page shows it. On a win the guessed joker is the answer,
-    so naming it reveals nothing early (NFR-1)."""
-    return dict(name=joker["name"], number=number, solved=joker["id"] == answer_id,
-                feedback=compare(joker, joker_by_id(answer_id)))
+    """One guess as the page shows it. The answer is only named once the round is over:
+    on a win the guess itself is the answer, and a lost round reveals it (NFR-1)."""
+    solved = joker["id"] == answer_id
+    shown = dict(name=joker["name"], number=number, solved=solved,
+                 lost=not solved and number >= MAX_GUESSES,
+                 feedback=compare(joker, joker_by_id(answer_id)))
+    if shown["lost"]:
+        shown["answer"] = joker_by_id(answer_id)["name"]
+    return shown
 
 
 @app.post("/api/progress")
@@ -114,6 +123,10 @@ def guess():
             [user_id, day]).fetchone()
         if solved:
             return jsonify(error="You already solved today\u2019s puzzle."), 409
+        used = conn.execute(
+            "SELECT count(*) FROM guesses WHERE user_id = %s AND puzzle_date = %s", [user_id, day]).fetchone()[0]
+        if used >= MAX_GUESSES:
+            return jsonify(error="You\u2019re out of guesses for today."), 409
         repeat = conn.execute(
             "SELECT 1 FROM guesses WHERE user_id = %s AND puzzle_date = %s AND joker_id = %s",
             [user_id, day, joker["id"]]).fetchone()

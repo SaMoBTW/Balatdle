@@ -14,7 +14,7 @@ import psycopg
 import db
 
 ROSTER = Path(__file__).with_name("jokers.json")
-COLUMNS = ("name", "rarity", "cost", "effect_type", "activation", "scales", "unlock_method")
+COLUMNS = ("name", "rarity", "cost", "effect_type", "activation", "scales", "unlock_method", "effect")
 
 UPSERT = "INSERT INTO jokers ({cols}) VALUES ({vals}) ON CONFLICT (name) DO UPDATE SET {sets}".format(
     cols=", ".join(COLUMNS),
