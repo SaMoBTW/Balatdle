@@ -3,8 +3,9 @@
 Usage:  .venv/bin/flask --app app run --port 5001
 """
 from datetime import datetime, timezone
+from functools import lru_cache
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 
 import db
 
@@ -14,6 +15,14 @@ app = Flask(__name__)
 def today(now=None):
     """The puzzle date. It rolls over at 00:00 UTC, so every player changes day at the same moment."""
     return (now or datetime.now(timezone.utc)).astimezone(timezone.utc).date()
+
+
+@lru_cache(maxsize=None)
+def roster():
+    """Every joker, keyed by lowercase name. Loaded once and kept in memory, so checking
+    a guessed name never touches the database. ponytail: restart the API after re-seeding."""
+    with db.connect() as conn:
+        return {name.casefold(): (joker_id, name) for joker_id, name in conn.execute("SELECT id, name FROM jokers")}
 
 
 @app.get("/api/puzzle")
@@ -27,3 +36,46 @@ def puzzle():
     if row is None:
         return jsonify(error="No puzzle is scheduled for today."), 503
     return jsonify(date=row[0].isoformat(), number=row[1])
+
+
+@app.get("/api/jokers")
+def jokers():
+    """Joker names for autocomplete. All 150 are listed, so the list says nothing about the answer."""
+    return jsonify(names=sorted(name for _, name in roster().values()))
+
+
+@app.post("/api/guess")
+def guess():
+    body = request.get_json(silent=True) or {}
+    token, name = body.get("token"), body.get("name")
+    if not isinstance(token, str) or not 0 < len(token) <= 64:
+        return jsonify(error="Missing player token."), 400
+    if not isinstance(name, str) or not name.strip():
+        return jsonify(error="Type a joker name first."), 400
+
+    joker = roster().get(name.strip().casefold())
+    if joker is None:
+        return jsonify(error="“{}” isn’t a joker.".format(name.strip()[:40])), 400
+    joker_id, joker_name = joker
+
+    day = today()
+    with db.connect() as conn:
+        answer = conn.execute("SELECT joker_id FROM daily_puzzles WHERE puzzle_date = %s", [day]).fetchone()
+        if answer is None:
+            return jsonify(error="No puzzle is scheduled for today."), 503
+        user_id = conn.execute(
+            "INSERT INTO users (token) VALUES (%s) ON CONFLICT (token) DO UPDATE SET token = EXCLUDED.token"
+            " RETURNING id", [token]).fetchone()[0]
+        repeat = conn.execute(
+            "SELECT 1 FROM guesses WHERE user_id = %s AND puzzle_date = %s AND joker_id = %s",
+            [user_id, day, joker_id]).fetchone()
+        if repeat:
+            return jsonify(error="You already guessed {}.".format(joker_name)), 409
+        # ponytail: two submits from the same player at the same instant can race on guess_number;
+        # the UNIQUE constraint stops a duplicate and the frontend blocks double submits.
+        number = conn.execute(
+            "INSERT INTO guesses (user_id, puzzle_date, joker_id, guess_number, is_correct)"
+            " SELECT %s, %s, %s, coalesce(max(guess_number), 0) + 1, %s FROM guesses"
+            " WHERE user_id = %s AND puzzle_date = %s RETURNING guess_number",
+            [user_id, day, joker_id, joker_id == answer[0], user_id, day]).fetchone()[0]
+    return jsonify(name=joker_name, number=number), 201

@@ -56,3 +56,16 @@ input:disabled { opacity: 0.6; }
 }
 
 .empty { margin: 0; color: var(--muted); text-align: center; }
+
+.message { min-height: 1.4em; margin: 0.4rem 0 0; color: var(--accent); font-weight: 600; }
+
+.board ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.5rem; }
+
+.board li {
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.4rem;
+  background: var(--felt);
+  font-weight: 600;
+}
+
+.number { color: var(--muted); font-weight: 400; margin-right: 0.4rem; }
