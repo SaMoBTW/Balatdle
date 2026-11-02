@@ -84,9 +84,28 @@ python3 -m venv .venv
 
 The seed script can be run again at any time. It updates existing jokers instead of adding duplicates, so a balance patch is an edit to `backend/jokers.json` followed by another run.
 
+Next, assign answers to the coming year and start the API. The schedule never changes a date that already has an answer, and no joker repeats within 100 days.
+
+```bash
+.venv/bin/python schedule.py
+.venv/bin/flask --app app run --port 5001
+```
+
+The API runs on port 5001 because macOS uses 5000 for AirPlay. In a second terminal, start the frontend:
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+The game is then at http://localhost:5173, and the frontend forwards its `/api` requests to the backend.
+
 To run the tests, which use a separate database:
 
 ```bash
 createdb balatdle_test
+cd backend
 .venv/bin/python test_seed.py
+.venv/bin/python test_app.py
 ```
