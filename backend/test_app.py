@@ -1,4 +1,4 @@
-"""Checks the backend side of US-2, US-3 and US-4 against a throwaway database.
+"""Checks the backend side of US-2 to US-5 against a throwaway database.
 
 Usage:  createdb balatdle_test && python test_app.py
 """
@@ -129,4 +129,21 @@ assert {f["match"] for f in second.get_json()["feedback"]} == {"exact"}
 # a wrong guess's feedback carries the guessed joker's values, never the answer's name
 assert answer_name not in first.get_data(as_text=True)
 
-print("US-2, US-3 and US-4 backend checks passed.")
+# ---- US-5: win the round ----
+# a wrong guess is not a win; the right one is, and it names the answer and the guess count
+assert first.get_json()["solved"] is False
+assert second.get_json()["solved"] is True and second.get_json()["name"] == answer_name
+assert second.get_json()["number"] == 2
+
+# once solved, the server refuses more guesses for that player and does not count them
+other = next(n for n in names["names"] if n not in (answer_name, wrong))
+after_win = guess(other)
+assert after_win.status_code == 409 and "already solved" in after_win.get_json()["error"]
+with db.connect() as conn:
+    assert conn.execute("SELECT count(*) FROM guesses g JOIN users u ON u.id = g.user_id"
+                        " WHERE u.token = 'player-one'").fetchone()[0] == 2
+
+# another player can still play
+assert guess(other, token="player-two").status_code == 201
+
+print("US-2 to US-5 backend checks passed.")

@@ -105,3 +105,15 @@ input:disabled { opacity: 0.6; }
   clip: rect(0 0 0 0);
   white-space: nowrap;
 }
+
+.win {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 2px solid var(--exact);
+  border-radius: 0.5rem;
+  background: var(--panel);
+}
+
+.win:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+.win h2 { margin: 0 0 0.3rem; font-size: 1.3rem; color: #8fd6a3; }
+.win p { margin: 0; }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 // Anonymous player id kept in the browser, so guesses are stored against a player without an account.
 function playerToken() {
@@ -78,6 +78,13 @@ export default function App() {
   const [guesses, setGuesses] = useState([])
   const [message, setMessage] = useState('')
   const [sending, setSending] = useState(false)
+  const win = guesses.find((g) => g.solved)
+  const winRef = useRef(null)
+
+  // Disabling the field drops keyboard focus, so move it to the result instead.
+  useEffect(() => {
+    if (win) winRef.current?.focus()
+  }, [win])
 
   useEffect(() => {
     Promise.all([getJson('/api/puzzle'), getJson('/api/jokers')])
@@ -126,7 +133,7 @@ export default function App() {
           onChange={(e) => setGuess(e.target.value)}
           placeholder="Type a joker name"
           autoComplete="off"
-          disabled={!puzzle}
+          disabled={!puzzle || Boolean(win)}
           aria-busy={sending}
         />
         <datalist id="joker-names">
@@ -134,6 +141,16 @@ export default function App() {
         </datalist>
         <p className="message" role="status">{message}</p>
       </form>
+
+      {win && (
+        <section className="win" ref={winRef} tabIndex={-1} aria-labelledby="win-title">
+          <h2 id="win-title">Solved</h2>
+          <p>
+            Today’s joker was <strong>{win.name}</strong>, and you found it in {win.number}{' '}
+            {win.number === 1 ? 'guess' : 'guesses'}.
+          </p>
+        </section>
+      )}
 
       <section className="board" aria-label="Your guesses">
         {guesses.length === 0 ? (

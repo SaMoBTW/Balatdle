@@ -69,6 +69,11 @@ def guess():
         user_id = conn.execute(
             "INSERT INTO users (token) VALUES (%s) ON CONFLICT (token) DO UPDATE SET token = EXCLUDED.token"
             " RETURNING id", [token]).fetchone()[0]
+        solved = conn.execute(
+            "SELECT 1 FROM guesses WHERE user_id = %s AND puzzle_date = %s AND is_correct",
+            [user_id, day]).fetchone()
+        if solved:
+            return jsonify(error="You already solved today\u2019s puzzle."), 409
         repeat = conn.execute(
             "SELECT 1 FROM guesses WHERE user_id = %s AND puzzle_date = %s AND joker_id = %s",
             [user_id, day, joker_id]).fetchone()
@@ -82,4 +87,6 @@ def guess():
             " WHERE user_id = %s AND puzzle_date = %s RETURNING guess_number",
             [user_id, day, joker_id, joker_id == answer[0], user_id, day]).fetchone()[0]
     answer_joker = next(j for j in roster().values() if j["id"] == answer[0])
-    return jsonify(name=joker_name, number=number, feedback=compare(joker, answer_joker)), 201
+    # On a win the guessed joker is the answer, so naming it here reveals nothing early (NFR-1).
+    return jsonify(name=joker_name, number=number, solved=joker_id == answer[0],
+                   feedback=compare(joker, answer_joker)), 201
