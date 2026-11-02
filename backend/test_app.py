@@ -1,4 +1,4 @@
-"""Checks the backend side of US-2 against a throwaway database.
+"""Checks the backend side of US-2 and US-3 against a throwaway database.
 
 Usage:  createdb balatdle_test && python test_app.py
 """
@@ -63,4 +63,54 @@ api.today = lambda: DAY - timedelta(days=1)
 missing = client.get("/api/puzzle")
 assert missing.status_code == 503 and "No puzzle" in missing.get_json()["error"]
 
-print("US-2 backend checks passed: same puzzle all day, UTC rollover, no answer in the response, no repeats within {} days.".format(GAP))
+
+# ---- US-3: submit a guess by name ----
+api.today = lambda: DAY
+api.roster.cache_clear()
+
+
+def guess(name, token="player-one"):
+    return client.post("/api/guess", json={"token": token, "name": name})
+
+
+def guess_count():
+    with db.connect() as conn:
+        return conn.execute("SELECT count(*) FROM guesses").fetchone()[0]
+
+
+# autocomplete gets every joker name and nothing else
+names = client.get("/api/jokers").get_json()
+assert set(names) == {"names"} and len(names["names"]) == 150 and "Blueprint" in names["names"]
+
+# a real name is recorded, matched without caring about case or stray spaces
+wrong = next(n for n in names["names"] if n != answer_name)
+first = guess("  " + wrong.lower() + " ")
+assert first.status_code == 201 and first.get_json() == {"name": wrong, "number": 1}, first.get_json()
+second = guess(answer_name)
+assert second.status_code == 201 and second.get_json()["number"] == 2
+with db.connect() as conn:
+    flags = conn.execute("SELECT guess_number, is_correct FROM guesses ORDER BY guess_number").fetchall()
+assert flags == [(1, False), (2, True)], flags
+
+# guessing the same joker twice is refused and not counted
+repeat = guess(wrong)
+assert repeat.status_code == 409 and guess_count() == 2
+
+# a made-up name is rejected before any database connection is opened
+real_connect = db.connect
+db.connect = lambda **kw: (_ for _ in ()).throw(AssertionError("database touched for a bad name"))
+try:
+    bad = guess("Jimbo the Great")
+finally:
+    db.connect = real_connect
+assert bad.status_code == 400 and "Jimbo the Great" in bad.get_json()["error"] and guess_count() == 2
+
+# malformed requests are turned away
+assert client.post("/api/guess", json={"name": wrong}).status_code == 400
+assert guess("   ").status_code == 400
+assert client.post("/api/guess", data="not json").status_code == 400
+
+# another player's numbering starts from 1
+assert guess(wrong, token="player-two").get_json()["number"] == 1
+
+print("US-2 and US-3 backend checks passed.")
