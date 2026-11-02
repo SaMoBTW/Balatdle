@@ -6,8 +6,10 @@ from datetime import datetime, timezone
 from functools import lru_cache
 
 from flask import Flask, jsonify, request
+from psycopg.rows import dict_row
 
 import db
+from evaluate import compare
 
 app = Flask(__name__)
 
@@ -19,10 +21,11 @@ def today(now=None):
 
 @lru_cache(maxsize=None)
 def roster():
-    """Every joker, keyed by lowercase name. Loaded once and kept in memory, so checking
-    a guessed name never touches the database. ponytail: restart the API after re-seeding."""
-    with db.connect() as conn:
-        return {name.casefold(): (joker_id, name) for joker_id, name in conn.execute("SELECT id, name FROM jokers")}
+    """Every joker with its attributes, keyed by lowercase name. Loaded once and kept in memory,
+    so checking a guessed name never touches the database. ponytail: restart the API after re-seeding."""
+    with db.connect(row_factory=dict_row) as conn:
+        rows = conn.execute("SELECT id, name, rarity, cost, effect_type, activation, scales, unlock_method FROM jokers")
+        return {row["name"].casefold(): row for row in rows}
 
 
 @app.get("/api/puzzle")
@@ -41,7 +44,7 @@ def puzzle():
 @app.get("/api/jokers")
 def jokers():
     """Joker names for autocomplete. All 150 are listed, so the list says nothing about the answer."""
-    return jsonify(names=sorted(name for _, name in roster().values()))
+    return jsonify(names=sorted(j["name"] for j in roster().values()))
 
 
 @app.post("/api/guess")
@@ -56,7 +59,7 @@ def guess():
     joker = roster().get(name.strip().casefold())
     if joker is None:
         return jsonify(error="“{}” isn’t a joker.".format(name.strip()[:40])), 400
-    joker_id, joker_name = joker
+    joker_id, joker_name = joker["id"], joker["name"]
 
     day = today()
     with db.connect() as conn:
@@ -78,4 +81,5 @@ def guess():
             " SELECT %s, %s, %s, coalesce(max(guess_number), 0) + 1, %s FROM guesses"
             " WHERE user_id = %s AND puzzle_date = %s RETURNING guess_number",
             [user_id, day, joker_id, joker_id == answer[0], user_id, day]).fetchone()[0]
-    return jsonify(name=joker_name, number=number), 201
+    answer_joker = next(j for j in roster().values() if j["id"] == answer[0])
+    return jsonify(name=joker_name, number=number, feedback=compare(joker, answer_joker)), 201

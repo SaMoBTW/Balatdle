@@ -21,6 +21,54 @@ async function getJson(url, options) {
   return body
 }
 
+const LABELS = {
+  rarity: 'Rarity',
+  cost: 'Cost',
+  effect_type: 'Type',
+  activation: 'Activation',
+  scales: 'Scales',
+  unlock_method: 'Unlock',
+}
+const MARKS = { exact: '✓', partial: '~', none: '✗' }
+const SPOKEN = { exact: 'exact match', partial: 'close', none: 'no match' }
+const ARROWS = { higher: '↑', lower: '↓' }
+const SPOKEN_ARROWS = { higher: 'answer costs more', lower: 'answer costs less' }
+
+function shown(f) {
+  if (f.attribute === 'cost') return `$${f.value}`
+  if (f.attribute === 'scales') return f.value ? 'Yes' : 'No'
+  return f.value
+}
+
+// One guessed joker: six tiles, each with colour, a symbol and spoken text, so colour is never the only signal.
+function GuessCard({ guess }) {
+  return (
+    <li className="guess">
+      <h2>
+        <span className="number">#{guess.number}</span> {guess.name}
+      </h2>
+      <dl className="tiles">
+        {guess.feedback.map((f) => (
+          <div key={f.attribute} className={`tile ${f.match}`}>
+            <dt>{LABELS[f.attribute]}</dt>
+            <dd>
+              <span className="value">{shown(f)}</span>
+              <span className="mark" aria-hidden="true">
+                {MARKS[f.match]}
+                {f.direction && ` ${ARROWS[f.direction]}`}
+              </span>
+              <span className="sr-only">
+                , {SPOKEN[f.match]}
+                {f.direction && `, ${SPOKEN_ARROWS[f.direction]}`}
+              </span>
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </li>
+  )
+}
+
 export default function App() {
   const [token] = useState(playerToken)
   const [puzzle, setPuzzle] = useState(null)
@@ -87,18 +135,16 @@ export default function App() {
         <p className="message" role="status">{message}</p>
       </form>
 
-      {/* Colour feedback on each guess is US-4; for now the board lists what was guessed. */}
       <section className="board" aria-label="Your guesses">
         {guesses.length === 0 ? (
           <p className="empty">No guesses yet.</p>
         ) : (
-          <ol reversed>
-            {guesses.map((g) => (
-              <li key={g.number}>
-                <span className="number">#{g.number}</span> {g.name}
-              </li>
-            ))}
-          </ol>
+          <>
+            <p className="legend">✓ exact · ~ close · ✗ no match · ↑↓ the answer costs more or less</p>
+            <ol>
+              {guesses.map((g) => <GuessCard key={g.number} guess={g} />)}
+            </ol>
+          </>
         )}
       </section>
     </main>
