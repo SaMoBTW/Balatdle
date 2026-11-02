@@ -1,4 +1,4 @@
-"""Checks the backend side of US-2 and US-3 against a throwaway database.
+"""Checks the backend side of US-2, US-3 and US-4 against a throwaway database.
 
 Usage:  createdb balatdle_test && python test_app.py
 """
@@ -85,7 +85,8 @@ assert set(names) == {"names"} and len(names["names"]) == 150 and "Blueprint" in
 # a real name is recorded, matched without caring about case or stray spaces
 wrong = next(n for n in names["names"] if n != answer_name)
 first = guess("  " + wrong.lower() + " ")
-assert first.status_code == 201 and first.get_json() == {"name": wrong, "number": 1}, first.get_json()
+assert first.status_code == 201, first.get_json()
+assert {k: first.get_json()[k] for k in ("name", "number")} == {"name": wrong, "number": 1}
 second = guess(answer_name)
 assert second.status_code == 201 and second.get_json()["number"] == 2
 with db.connect() as conn:
@@ -113,4 +114,19 @@ assert client.post("/api/guess", data="not json").status_code == 400
 # another player's numbering starts from 1
 assert guess(wrong, token="player-two").get_json()["number"] == 1
 
-print("US-2 and US-3 backend checks passed.")
+# ---- US-4: feedback on each guess ----
+attrs = ["rarity", "cost", "effect_type", "activation", "scales", "unlock_method"]
+
+# every guess reports all six attributes, each as exact, partial or none
+wrong_feedback = first.get_json()["feedback"]
+assert [f["attribute"] for f in wrong_feedback] == attrs
+assert all(f["match"] in ("exact", "partial", "none") for f in wrong_feedback)
+assert "direction" in wrong_feedback[1]
+
+# the answer comes back exact on every attribute
+assert {f["match"] for f in second.get_json()["feedback"]} == {"exact"}
+
+# a wrong guess's feedback carries the guessed joker's values, never the answer's name
+assert answer_name not in first.get_data(as_text=True)
+
+print("US-2, US-3 and US-4 backend checks passed.")

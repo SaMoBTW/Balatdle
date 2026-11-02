@@ -4,6 +4,9 @@
   --ink: #f4f1e8;
   --muted: #c9d6cf;
   --accent: #ff7a6e;  /* 4.77:1 on the felt background */
+  --exact: #2f7d4a;
+  --partial: #e8b931;
+  --none: #4f5d59;
   color-scheme: dark;
   font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
@@ -59,13 +62,46 @@ input:disabled { opacity: 0.6; }
 
 .message { min-height: 1.4em; margin: 0.4rem 0 0; color: var(--accent); font-weight: 600; }
 
-.board ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.5rem; }
+.board ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 1rem; }
 
-.board li {
-  padding: 0.6rem 0.8rem;
-  border-radius: 0.4rem;
-  background: var(--felt);
-  font-weight: 600;
+.legend { margin: 0 0 0.75rem; font-size: 0.85rem; color: var(--muted); }
+
+.guess h2 { margin: 0 0 0.5rem; font-size: 1.05rem; }
+
+.number { color: var(--muted); font-weight: 400; margin-right: 0.3rem; }
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.4rem;
+  margin: 0;
 }
 
-.number { color: var(--muted); font-weight: 400; margin-right: 0.4rem; }
+@media (min-width: 30rem) {
+  .tiles { grid-template-columns: repeat(3, 1fr); }
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 0.4rem;
+}
+
+.tile dt { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; opacity: 0.85; }
+.tile dd { margin: 0; display: flex; justify-content: space-between; gap: 0.4rem; font-weight: 600; font-size: 0.88rem; }
+.tile .mark { flex-shrink: 0; font-size: 1rem; }
+
+.tile.exact { background: var(--exact); color: #fff; }
+.tile.partial { background: var(--partial); color: #1b1b1b; }
+.tile.none { background: var(--none); color: #fff; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

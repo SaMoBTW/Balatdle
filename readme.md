@@ -108,4 +108,7 @@ createdb balatdle_test
 cd backend
 .venv/bin/python test_seed.py
 .venv/bin/python test_app.py
+.venv/bin/python test_evaluate.py
 ```
+
+`test_evaluate.py` checks the feedback rules on their own and does not need a database.
