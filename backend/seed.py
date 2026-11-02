@@ -6,11 +6,12 @@ Running it again updates existing jokers instead of adding duplicates, so a
 balance patch is an edit to jokers.json followed by another run.
 """
 import json
-import os
 import sys
 from pathlib import Path
 
 import psycopg
+
+import db
 
 ROSTER = Path(__file__).with_name("jokers.json")
 COLUMNS = ("name", "rarity", "cost", "effect_type", "activation", "scales", "unlock_method")
@@ -37,7 +38,7 @@ def seed(conn, roster):
 
 def main():
     roster = json.loads(ROSTER.read_text(encoding="utf-8"))
-    with psycopg.connect(os.environ.get("DATABASE_URL", "dbname=balatdle")) as conn:
+    with db.connect() as conn:
         try:
             count = seed(conn, roster)
         except ValueError as e:
